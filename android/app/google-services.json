@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "719986597028",
+    "project_id": "condo-5ad01",
+    "storage_bucket": "condo-5ad01.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:719986597028:android:d8efe82302aec542fbda31",
+        "android_client_info": {
+          "package_name": "com.example.nexus_condo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAuhuxtYqkoZJXSZkjO7HWKXAcmGUvuH_I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
