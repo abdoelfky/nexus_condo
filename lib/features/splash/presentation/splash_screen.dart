@@ -5,7 +5,7 @@ import 'package:nexus_condo/core/constants/app_images.dart';
 import 'package:nexus_condo/core/shared_preferences/shared_preferences.dart';
 import 'package:nexus_condo/core/widgets/background_screen.dart';
 import 'package:nexus_condo/features/auth/presentation/auth_screen.dart';
-import 'package:nexus_condo/features/home/presentation/home_screen.dart';
+import 'package:nexus_condo/features/user/home/presentation/home_screen.dart';
 
 import 'bouncy_widget.dart';
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:nexus_condo/features/auth/controllers/auth_provider.dart';
-import 'package:nexus_condo/features/home/presentation/home_screen.dart';
+import 'package:nexus_condo/features/user/home/presentation/home_screen.dart';
 
 class AuthService {
   final WidgetRef ref;
