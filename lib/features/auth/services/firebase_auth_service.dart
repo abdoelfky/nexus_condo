@@ -28,6 +28,7 @@ class FirebaseAuthService {
         userDataSnapshot.data() as Map<String, dynamic>;
         UserData user = UserData.fromMap(userData);
         user.id = userCredential.user!.uid;
+
         print(user.id);
         print(AppSettingsPreferences().isVerified.toString());
         AppSettingsPreferences().saveUser(user: user);

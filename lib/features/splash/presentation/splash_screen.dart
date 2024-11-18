@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:nexus_condo/core/constants/app_colors.dart';
+import 'package:nexus_condo/core/constants/app_constants.dart';
 import 'package:nexus_condo/core/constants/app_images.dart';
 import 'package:nexus_condo/core/shared_preferences/shared_preferences.dart';
 import 'package:nexus_condo/core/widgets/background_screen.dart';
+import 'package:nexus_condo/features/admin/home/presentation/home_screen.dart';
 import 'package:nexus_condo/features/auth/presentation/auth_screen.dart';
 import 'package:nexus_condo/features/user/home/presentation/home_screen.dart';
 
@@ -18,11 +20,15 @@ class SplashScreen extends ConsumerWidget {
     Future.delayed(Duration(seconds: 2), () {
       // Check if the widget is still mounted
       if (context.mounted) {
+
         if(AppSettingsPreferences().id != '') {
-          Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (_) => HomeScreen()),
-        );
+          if (AppSettingsPreferences().userType.toLowerCase() == UserType.admin.value.toLowerCase()) {
+            Navigator.pushReplacement(
+                context, MaterialPageRoute(builder: (_) => AdminHomeScreen()));
+          } else {
+            Navigator.pushReplacement(
+                context, MaterialPageRoute(builder: (_) => HomeScreen()));
+          }
         }else
         {
           Navigator.pushReplacement(
