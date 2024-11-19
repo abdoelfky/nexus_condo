@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:nexus_condo/core/constants/app_constants.dart';
+import 'package:nexus_condo/core/widgets/LogoDisplay.dart';
 import 'package:nexus_condo/core/widgets/background_screen.dart';
 import 'package:nexus_condo/features/auth/controllers/timer.dart';
 import 'package:nexus_condo/features/auth/services/auth_service.dart';
-
 import '../controllers/toggle_index_notifier.dart';
 import 'forget_password_form.dart';
 import 'login_form.dart';
 import 'widgets/AuthToggleButtons.dart';
 import 'widgets/BlurredContainer.dart';
-import 'widgets/LogoDisplay.dart';
 
 class LoginScreen extends ConsumerWidget {
   @override

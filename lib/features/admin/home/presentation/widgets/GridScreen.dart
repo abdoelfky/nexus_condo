@@ -1,17 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:nexus_condo/core/constants/app_colors.dart';
 import 'package:nexus_condo/core/utils/dimensions.dart';
+import 'package:nexus_condo/features/admin/add_user/presentation/add_user_screen.dart';
 import 'package:nexus_condo/features/user/home/data/User.dart';
+
+import 'gridItem.dart';
 
 class ItemGrid extends StatelessWidget {
   ItemGrid({super.key});
+
   final List<GridItem> gridItems = [
-    GridItem(color: AppColors.gridItemColor_1, text: "Rent", icon: Icons.home),
-    GridItem(color: AppColors.gridItemColor_2, text: "Services", icon: Icons.home_repair_service_sharp),
-    GridItem(color: AppColors.gridItemColor_3, text: "Requests", icon: Icons.miscellaneous_services_outlined),
-    GridItem(color: AppColors.gridItemColor_4, text: "Market", icon: Icons.storefront),
+    GridItem(
+        color: AppColors.gridItemColor_1,
+        text: "Add User",
+        icon: Icons.person_add_outlined),
+    GridItem(
+        color: AppColors.gridItemColor_2,
+        text: "Add Units",
+        icon: Icons.maps_home_work_rounded),
+    GridItem(
+        color: AppColors.gridItemColor_3,
+        text: "Requests",
+        icon: Icons.miscellaneous_services_outlined),
+    GridItem(
+        color: AppColors.gridItemColor_4,
+        text: "Market",
+        icon: Icons.storefront),
     GridItem(color: AppColors.gridItemColor_5, text: "Help", icon: Icons.help),
   ];
+
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
@@ -25,7 +42,54 @@ class ItemGrid extends StatelessWidget {
       ),
       itemCount: gridItems.length,
       itemBuilder: (context, index) {
-        return ItemCard(index: index,gridItems: gridItems,);
+        return GestureDetector(
+            onTap: () {
+              switch (index) {
+                case 0:
+                  // Navigate to Add User screen
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const AddUserScreen()),
+                  );
+                  break;
+                case 1:
+                  // Navigate to Add Units screen
+                  //   Navigator.push(
+                  //     context,
+                  //     MaterialPageRoute(builder: (context) => const AddUnitsScreen()),
+                  //   );
+                  break;
+                case 2:
+                  // Handle Requests action
+                  //   Navigator.push(
+                  //     context,
+                  //     MaterialPageRoute(builder: (context) => const RequestsScreen()),
+                  //   );
+                  break;
+                case 3:
+                  // Navigate to Market screen
+                  //   Navigator.push(
+                  //     context,
+                  //     MaterialPageRoute(builder: (context) => const MarketScreen()),
+                  //   );
+                  break;
+                case 4:
+                  // Navigate to Help screen
+                  //   Navigator.push(
+                  //     context,
+                  //     MaterialPageRoute(builder: (context) => const HelpScreen()),
+                  //   );
+                  break;
+                default:
+                  // Handle unexpected index
+                  print("Invalid grid item index: $index");
+              }
+            },
+            child: ItemCard(
+              index: index,
+              gridItems: gridItems,
+            ));
       },
     );
   }
@@ -45,7 +109,8 @@ class ItemCard extends StatelessWidget {
       shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(Dimensions.radiusLarge)),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal:  Dimensions.paddingSizeSmall),
+        padding:
+            const EdgeInsets.symmetric(horizontal: Dimensions.paddingSizeSmall),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -87,7 +152,9 @@ class ItemCard extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(height: Dimensions.paddingSizeExtraSmall,),
+            SizedBox(
+              height: Dimensions.paddingSizeExtraSmall,
+            ),
             Text(
               gridItems[index].text,
               style: const TextStyle(

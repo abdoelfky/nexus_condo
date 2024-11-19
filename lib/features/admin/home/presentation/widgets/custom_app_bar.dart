@@ -11,9 +11,9 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.white, // Background color of the app bar
+        color: AppColors.appBarColor, // Background color of the app bar
         borderRadius: const BorderRadius.vertical(
-          bottom: Radius.circular(30), // Circular bottom border
+          bottom: Radius.circular(5), // Circular bottom border
         ),
         boxShadow: [
           BoxShadow(

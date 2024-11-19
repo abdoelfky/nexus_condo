@@ -24,7 +24,7 @@ class AppColors {
   static const Color nexusGreen = Color(0xFF00B74D); // Green for success messages
   static const Color nexusShadowGreen = Color(0xFF0D6916); // Green for success messages
   static const Color borderColor = Color(0xFFDDDDDD); // Light gray for borders
-  static const Color appBarColor = Color(0xFFFFFFFF); // Light gray for borders
+  static const Color appBarColor = Color(0xFFF3F6F9); // Light gray for borders
   static const Color bottomNavBarColor = Color(0xFFF3F6F9); // Light gray for borders
   static const Color whiteColor = Color(0xFFFFFFFF); // Lighter gray for secondary text
 
