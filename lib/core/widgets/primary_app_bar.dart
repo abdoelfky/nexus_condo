@@ -24,6 +24,9 @@ class PrimaryAppBar extends StatelessWidget implements PreferredSizeWidget {
         ],
       ),
       child: AppBar(
+        iconTheme: IconThemeData(
+          color: AppColors.whiteTextColor, // Set the back icon color to white
+        ),
         title: Text(
           title,
           maxLines: 1,
@@ -31,15 +34,18 @@ class PrimaryAppBar extends StatelessWidget implements PreferredSizeWidget {
           style: const TextStyle(
             fontSize: Dimensions.fontSizeLarge,
             fontWeight: FontWeight.bold,
+            color: AppColors.whiteTextColor, // White text color for the title
           ),
         ),
         centerTitle: true,
-        backgroundColor: Colors.transparent, // Make AppBar transparent
+        backgroundColor: Colors.transparent,
+        // Make AppBar transparent
         elevation: 0, // Remove AppBar elevation
       ),
     );
   }
 
   @override
-  Size get preferredSize => const Size.fromHeight(kToolbarHeight); // Include circular border height
+  Size get preferredSize =>
+      const Size.fromHeight(kToolbarHeight); // Include circular border height
 }

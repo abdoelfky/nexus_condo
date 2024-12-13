@@ -5,11 +5,13 @@ class PasswordField extends StatelessWidget {
   final TextEditingController controller;
   final bool obscureText;
   final VoidCallback onVisibilityToggle;
+  final String text;
 
-  const PasswordField({
+  PasswordField({
     required this.controller,
     required this.obscureText,
-    required this.onVisibilityToggle,
+    required this.onVisibilityToggle
+  ,this.text = 'Password'
   });
 
   @override
@@ -18,9 +20,9 @@ class PasswordField extends StatelessWidget {
       controller: controller,
       obscureText: obscureText,
       decoration: InputDecoration(
-        labelText: 'Password',
+        labelText: text,
         labelStyle:
-        TextStyle(color: AppColors.whiteTextColor),
+        TextStyle(color: AppColors.primaryTextColor),
         prefixIcon: Icon(
           Icons.vpn_key_outlined,
           color: AppColors.nexusGreen,

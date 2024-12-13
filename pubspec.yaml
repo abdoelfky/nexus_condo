@@ -45,6 +45,15 @@ dependencies:
   shared_preferences:
   loading_animation_widget:
   lottie:
+  image_picker:
+  carousel_slider:
+  url_launcher:
+  conditional_builder_null_safety:
+  flutter_firebase_chat_core:
+  stream_chat_flutter:
+  flutter_chat_ui:
+  open_filex:
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:nexus_condo/core/constants/app_colors.dart';
 import 'package:nexus_condo/core/shared_preferences/shared_preferences.dart';
 import 'package:nexus_condo/features/auth/data/User.dart';
+import 'package:nexus_condo/features/auth/presentation/auth_screen.dart';
 
 typedef UserAuthStatus = void Function({required bool loggedIn});
 
@@ -34,7 +35,7 @@ class FirebaseAuthService {
         AppSettingsPreferences().saveUser(user: user);
         return true;
       } else {
-        await signOut();
+        await signOut(context);
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
             content: Text('Login Failed'),
             backgroundColor: AppColors.errorColor));
@@ -52,10 +53,11 @@ class FirebaseAuthService {
   }
 
   bool loggedIn() => _auth.currentUser != null;
-  Future<void> signOut() async {
+  Future<void> signOut(BuildContext context) async {
     await _auth.signOut();
     await AppSettingsPreferences().updateLoggedIn();
-    // Get.offAll(() => AuthScreen(), transition: Transition.cupertino);
+    Navigator.pushReplacement(
+        context, MaterialPageRoute(builder: (_) => LoginScreen()));
   }
   StreamSubscription<User?> checkUserStatus(UserAuthStatus userAuthStatus) {
     return _auth.authStateChanges().listen((event) {

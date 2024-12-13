@@ -19,7 +19,7 @@ class CustomTextFormField extends StatelessWidget {
     return TextFormField(
       controller: controller,
       decoration: InputDecoration(
-        labelStyle: TextStyle(color: AppColors.whiteTextColor),
+        labelStyle: TextStyle(color: AppColors.primaryTextColor),
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(15)),
         filled: true,
         // Enables filling the background

@@ -47,6 +47,8 @@ class Dimensions {
   static const double logoHeight = 80.0;
   static const double cardHeight = 265.0;
 
+  static const double buttonWidthDefault = 170.0;
+
 
   static const double radiusSmall = 5.0;
   static const double radiusDefault = 10.0;
@@ -55,5 +57,11 @@ class Dimensions {
   static const double menuIconSize = 25.0;
   static const double featuredProductCard = 370.0;
   static const double compareCardWidget = 200.0;
+
+  static const double imgWidthDefault = 200.0;
+  static const double profileTileDefault = 160.0;
+  static const double imgHeightDefault = 200.0;
+  static const double imgWidthLarge = 250.0;
+  static const double imgHeightLarge = 250.0;
 }
 

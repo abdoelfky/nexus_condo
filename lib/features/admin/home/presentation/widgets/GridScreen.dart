@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:nexus_condo/core/constants/app_colors.dart';
+import 'package:nexus_condo/core/shared_preferences/shared_preferences.dart';
 import 'package:nexus_condo/core/utils/dimensions.dart';
+import 'package:nexus_condo/core/utils/gridItem.dart';
 import 'package:nexus_condo/features/admin/add_user/presentation/add_user_screen.dart';
-import 'package:nexus_condo/features/user/home/data/User.dart';
-
-import 'gridItem.dart';
+import 'package:nexus_condo/features/admin/services/services_screen.dart';
+import 'package:nexus_condo/features/admin/units/presentation/units.dart';
+import 'package:nexus_condo/features/chat/ChatScreen.dart';
+import 'package:nexus_condo/features/help/presentation/AdminHelpScreen.dart';
 
 class ItemGrid extends StatelessWidget {
   ItemGrid({super.key});
@@ -16,16 +19,16 @@ class ItemGrid extends StatelessWidget {
         icon: Icons.person_add_outlined),
     GridItem(
         color: AppColors.gridItemColor_2,
-        text: "Add Units",
+        text: "Units",
         icon: Icons.maps_home_work_rounded),
     GridItem(
         color: AppColors.gridItemColor_3,
-        text: "Requests",
+        text: "Services",
         icon: Icons.miscellaneous_services_outlined),
     GridItem(
         color: AppColors.gridItemColor_4,
-        text: "Market",
-        icon: Icons.storefront),
+        text: "Chat",
+        icon: Icons.chat),
     GridItem(color: AppColors.gridItemColor_5, text: "Help", icon: Icons.help),
   ];
 
@@ -55,31 +58,31 @@ class ItemGrid extends StatelessWidget {
                   break;
                 case 1:
                   // Navigate to Add Units screen
-                  //   Navigator.push(
-                  //     context,
-                  //     MaterialPageRoute(builder: (context) => const AddUnitsScreen()),
-                  //   );
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const UnitListScreen()),
+                    );
                   break;
                 case 2:
                   // Handle Requests action
-                  //   Navigator.push(
-                  //     context,
-                  //     MaterialPageRoute(builder: (context) => const RequestsScreen()),
-                  //   );
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const AdminServicesScreen()),
+                    );
                   break;
                 case 3:
                   // Navigate to Market screen
-                  //   Navigator.push(
-                  //     context,
-                  //     MaterialPageRoute(builder: (context) => const MarketScreen()),
-                  //   );
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) =>  GroupChatScreen(userId:AppSettingsPreferences().id ,userName:AppSettingsPreferences().name ,)),
+                    );
                   break;
                 case 4:
                   // Navigate to Help screen
-                  //   Navigator.push(
-                  //     context,
-                  //     MaterialPageRoute(builder: (context) => const HelpScreen()),
-                  //   );
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const AdminComplaintsScreen()),
+                    );
                   break;
                 default:
                   // Handle unexpected index

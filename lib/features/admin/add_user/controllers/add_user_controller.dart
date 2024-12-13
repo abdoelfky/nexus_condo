@@ -29,7 +29,8 @@ class SignUpController extends StateNotifier<bool> {
         'password': password,
         'name': name,
         'id': uid,
-      'userType':'user',
+        'userType':'user',
+        'is_rented':false,
         'created_at': Timestamp.now(),
       });
     } on FirebaseAuthException catch (e) {

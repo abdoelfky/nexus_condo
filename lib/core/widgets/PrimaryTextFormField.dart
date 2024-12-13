@@ -19,11 +19,11 @@ class PrimaryTextFormField extends StatelessWidget {
     return TextFormField(
       controller: controller,
       decoration: InputDecoration(
-        labelStyle: TextStyle(color: AppColors.whiteTextColor),
+        labelStyle: TextStyle(color: AppColors.primaryTextColor),
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(15)),
         filled: true,
         // Enables filling the background
-        fillColor: Colors.white.withOpacity(0.5),
+        fillColor: AppColors.whiteColor,
         labelText: label,
         prefixIcon: Icon(
           prefixIcon,

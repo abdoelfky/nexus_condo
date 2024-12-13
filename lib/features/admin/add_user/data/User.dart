@@ -7,11 +7,13 @@ class UserModel {
   final String name;
   final String userType;
   final DateTime createdAt;
+  final bool is_rented;
 
   UserModel({
     required this.docID,
     required this.email,
     required this.phone,
+    required this.is_rented,
     required this.name,
     required this.userType,
     required this.createdAt,
@@ -24,6 +26,7 @@ class UserModel {
       email: map['email'] ?? '',
       phone: map['phone'] ?? '',
       name: map['name'] ?? '',
+      is_rented: map['is_rented'] ?? false,
       userType: map['userType'] ?? 'user', // Default userType
       createdAt: (map['created_at'] as Timestamp).toDate(),
     );
@@ -36,6 +39,7 @@ class UserModel {
       'email': email,
       'phone': phone,
       'name': name,
+      'is_rented': is_rented,
       'userType': userType,
       'created_at': Timestamp.fromDate(createdAt),
     };

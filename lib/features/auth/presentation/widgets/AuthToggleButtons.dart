@@ -18,10 +18,10 @@ class AuthToggleButtons extends StatelessWidget {
   Widget build(BuildContext context) {
     return ToggleButtons(
       isSelected: [selectedIndex == 0, selectedIndex == 1],
-      color: Colors.white,
+      color: AppColors.whiteTextColor,
       selectedColor: AppColors.whiteTextColor,
-      fillColor: AppColors.nexusGreen,
-      borderColor: AppColors.whiteTextColor.withOpacity(.5),
+      fillColor: AppColors.primaryTextColor,
+      borderColor: AppColors.primaryTextColor.withOpacity(.5),
       borderRadius: BorderRadius.circular(15),
       children: [
         Container(

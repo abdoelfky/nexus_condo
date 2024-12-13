@@ -5,6 +5,9 @@ class UserData {
   String? email;
   String? userType;
   String? password;
+  String? unitId;
+  String? unitNo;
+  // String? password;
 
   UserData({
     required this.id,
@@ -13,6 +16,8 @@ class UserData {
     required this.name,
     required this.email,
     required this.password,
+    required this.unitId,
+    required this.unitNo,
   });
 
   // A factory method to convert a Map to UserData object
@@ -20,10 +25,12 @@ class UserData {
     return UserData(
       id: map['id'] ?? '',
       userType: map['userType'] ?? '',
-      phoneNumber: map['phoneNumber'] ?? '',
+      phoneNumber: map['phone'] ?? '',
       name: map['name'] ?? '',
       email: map['email'] ?? '',
       password: map['password'] ?? '',
+      unitId: map['unitId'] ?? '',
+      unitNo: map['unitNo'] ?? '',
     );
   }
 

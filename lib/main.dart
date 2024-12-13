@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:nexus_condo/core/shared_preferences/shared_preferences.dart';
+import 'package:nexus_condo/features/onBoarding/presentation/onBoarding_screen.dart';
 import 'features/splash/presentation/splash_screen.dart';
 
 void main() async {
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'CondoNexus',
       // theme: ThemeData(primarySwatch: Colors.blue),
-      home: SplashScreen(),
+      home: AppSettingsPreferences().isOnboarding?SplashScreen():OnboardingScreen(),
     );
   }
 }

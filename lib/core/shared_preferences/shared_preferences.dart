@@ -32,6 +32,8 @@ class AppSettingsPreferences {
 
   Future<void> saveUser({required UserData user}) async {
     sharedPreferences!.setString('id', user.id ?? "");
+    sharedPreferences!.setString('unitId', user.unitId ?? "");
+    sharedPreferences!.setString('unitNo', user.unitNo ?? "");
      sharedPreferences!.setString('name', user.name ?? "");
      sharedPreferences!.setString('email', user.email ?? "");
      sharedPreferences!.setString('phoneNumber', user.phoneNumber ?? "");
@@ -39,7 +41,9 @@ class AppSettingsPreferences {
     sharedPreferences!.setString('userType', user.userType ?? "");
     sharedPreferences!.setBool('isGuest', false);
   }
-
+  Future<void> setOnboarding({required bool value}) async {
+    sharedPreferences!.setBool('isOnboarding', value);
+  }
 
   // Future<void> saveStore({required StoreData store}) async {
   //   sharedPreferences!.setString('id', store.id ?? "");
@@ -67,7 +71,9 @@ class AppSettingsPreferences {
         name:  sharedPreferences!.getString('name')!,
         email:  sharedPreferences!.getString('email')!,
         password:  sharedPreferences!.getString('password')!,
-        phoneNumber:  sharedPreferences!.getString('phoneNumber')!,
+      phoneNumber:  sharedPreferences!.getString('phoneNumber')!,
+      unitId:  sharedPreferences!.getString('unitId')!,
+      unitNo:  sharedPreferences!.getString('unitNo')!,
     );
 
     return user;
@@ -92,6 +98,7 @@ class AppSettingsPreferences {
   double get package2 =>  sharedPreferences!.getDouble('package2') ?? 0;
   bool get isVerified =>  sharedPreferences!.getBool('isVerified') ?? false;
   bool get isGuest =>  sharedPreferences!.getBool('isGuest') ?? false;
+  bool get isOnboarding =>  sharedPreferences!.getBool('isOnboarding') ?? false;
 
   void handleClearPrefs() {
      sharedPreferences!.clear();

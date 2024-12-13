@@ -5,9 +5,9 @@ import 'package:nexus_condo/core/constants/app_constants.dart';
 import 'package:nexus_condo/core/constants/app_images.dart';
 import 'package:nexus_condo/core/shared_preferences/shared_preferences.dart';
 import 'package:nexus_condo/core/widgets/background_screen.dart';
-import 'package:nexus_condo/features/admin/home/presentation/home_screen.dart';
+import 'package:nexus_condo/features/admin/home/presentation/dashboard.dart';
 import 'package:nexus_condo/features/auth/presentation/auth_screen.dart';
-import 'package:nexus_condo/features/user/home/presentation/home_screen.dart';
+import 'package:nexus_condo/features/user/home/presentation/dashboard.dart';
 
 import 'bouncy_widget.dart';
 
@@ -24,10 +24,10 @@ class SplashScreen extends ConsumerWidget {
         if(AppSettingsPreferences().id != '') {
           if (AppSettingsPreferences().userType.toLowerCase() == UserType.admin.value.toLowerCase()) {
             Navigator.pushReplacement(
-                context, MaterialPageRoute(builder: (_) => AdminHomeScreen()));
+                context, MaterialPageRoute(builder: (_) => AdminDashBoardScreen()));
           } else {
             Navigator.pushReplacement(
-                context, MaterialPageRoute(builder: (_) => HomeScreen()));
+                context, MaterialPageRoute(builder: (_) => UserDashBoardScreen()));
           }
         }else
         {
@@ -41,8 +41,27 @@ class SplashScreen extends ConsumerWidget {
 
     return Scaffold(
       body: BackgroundScreen(
+        // imgSrc: AppImages.splashBackground,
         child: Stack(
           children: [
+            Positioned.fill(
+              child:Stack(
+                children: [
+                  Image.asset(
+                    AppImages.splashBackground, // Replace with the image path
+                    fit: BoxFit.cover,
+                    width: double.infinity,
+                    height: double.infinity,
+                  ),
+                  Container(
+                    color: Colors.black.withOpacity(0.5), // Black layer with 50% opacity
+                    width: double.infinity,
+                    height: double.infinity,
+                  ),
+                ],
+              )
+
+            ),
             // Centered Image
             Positioned(
               top: MediaQuery.of(context).size.height*.4,
@@ -74,7 +93,7 @@ class SplashScreen extends ConsumerWidget {
                       mainAxisSize: MainAxisSize.min, // Take up minimum space
                       children: [
                         Text(
-                          'App Version 1.1.0',
+                          '',
                           style: TextStyle(
                             fontSize: 12,
                             color: AppColors.whiteTextColor, // Text color for version
@@ -82,7 +101,7 @@ class SplashScreen extends ConsumerWidget {
                         ),
                         const SizedBox(width: 8), // Space between text
                         Text(
-                          'Nexus Design Studios',
+                          '',
                           style: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.bold,
